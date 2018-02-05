@@ -5,7 +5,7 @@ document.body.appendChild(jQueryScript);
 document.querySelector('.locate-me').addEventListener('click', function () {
     navigator.geolocation.getCurrentPosition(function (position) {
         document.getElementById("latA").value = position.coords.latitude
-        document.getElementById("lonA").value = position.coords.latitude
+        document.getElementById("lonA").value = position.coords.longitude
     })
 })
 
