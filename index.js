@@ -1,7 +1,14 @@
-var jQueryScript = document.createElement('script');  
+var jQueryScript = document.createElement('script');
 jQueryScript.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.js');
 document.body.appendChild(jQueryScript);
-    
+
+document.querySelector('.locate-me').addEventListener('click', function () {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        document.getElementById("latA").value = position.coords.latitude
+        document.getElementById("lonA").value = position.coords.longitude
+    })
+})
+
 // Only executed our code once the DOM is ready.
 function render_all() {
     // Get a reference to the canvas object
