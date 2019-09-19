@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Angle globe</title>
+  <title>Angle globe</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 80%;
+      padding: 20px 0;
+    }
+
+    #result {
+      display: block;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+  </style>
 </head>
 <body>
     <canvas style="position:absolute; z-index: -1" id="myCanvas" width="1920" height="1080"></canvas>
     <button class="locate-me">locate me</button>
     <input id="latA" type="text" placeholder="Latitude A">
     <input id="lonA" type="text" placeholder="Longitude A">
-    <input id="latB" type="text" placeholder="Latitude B">
-    <input id="lonB" type="text" placeholder="Longitude B">
+    <input id="latB" type="text" placeholder="Latitude B" value="-33.047304">
+    <input id="lonB" type="text" placeholder="Longitude B" value="-71.6149157">
     <input type="submit" onclick="render_all()">
+    <svg id="result" viewBox="0 0 20 20" width="200" height="200">
+      <defs>
+        <pattern id="world" x="0" y="0" patternUnits="userSpaceOnUse" height="20"width="20">
+          <image x="0" y="0" xlink:href="world.png" height="20"width="20"></image>
+        </pattern>
+      </defs>
+  	  <circle r="10" cx="10" cy="10" fill="url(#world)" />
+  	  <circle r="5" cx="10" cy="10" fill="transparent"
+        stroke="#0363f4b0"
+        stroke-width="10"
+        stroke-dasharray="0 31.4"
+        transform="rotate(-90) translate(-20)"
+        id="angle"
+      />
+  	</svg>
     <script src="index.js"></script>
 </body>
 </html>
