@@ -30,9 +30,6 @@ function getAngle() {
   return toDeg(Math.acos(cos))
 }
 
-function renderCircle(angle){
-  console.log('render', angle);
-  const a = toRad(angle) / 2 * 10;
-  circleAngleEl.removeAttribute('stroke-dasharray');
-  circleAngleEl.setAttribute('stroke-dasharray', `${a} 31.4`)
+function renderCircle(angle) {
+  circleAngleEl.setAttribute('stroke-dasharray', `${toRad(angle) / 2 * 10} 31.4`)
 }
